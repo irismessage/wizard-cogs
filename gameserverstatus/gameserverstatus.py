@@ -524,7 +524,7 @@ class GameServerStatus(commands.Cog):
                     server = watch["server"]
 
                     try:
-                        channel: TextChannel = self.bot.get_channel(ch_id)
+                        channel: TextChannel = await self.bot.fetch_channel(ch_id)
                         msg: Message = await channel.fetch_message(msg_id)
                     except discord.NotFound:
                         # Message gone now, clear config I guess.
